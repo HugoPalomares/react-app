@@ -1,21 +1,29 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Button from 'react-toolbox/lib/button/Button';
+import theme from './assets/react-toolbox/theme'
+import ThemeProvider from 'react-toolbox/lib/ThemeProvider';
 
-class App extends Component {
+const ButtonsTest = () => (
+  <div>
+    <Button icon='bookmark' label='Bookmark' accent />
+    <Button icon='bookmark' label='Bookmark' raised primary />
+    <Button icon='inbox' label='Inbox' flat />
+    <Button icon='add' floating />
+    <Button icon='add' floating accent mini />
+    <Button icon='add' label='Add this' flat primary />
+    <Button icon='add' label='Add this' flat disabled />
+  </div>
+);
+
+class App extends React.Component {
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+      <ThemeProvider theme={theme}>
+        <div>
+          <ButtonsTest />
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      </ThemeProvider>
     );
   }
 }
-
 export default App;
